@@ -25,6 +25,6 @@ def my_certificates_page():
 if __name__ == "__main__":
     application.run(
         debug=True,
-        host="127.0.0.1",
+        host="0.0.0.0",
         port=APPLICATION_SETTINGS["PORT"]
     )
