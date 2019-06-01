@@ -12,34 +12,36 @@
     <body>
         <div class="container">
             <div class="row justify-content-center">
-                <div>Мои сертификаты (0x126f0de2008f0c593b1a3ec6f684b1715c77b7b0)</div>
+                <div>Все сертификаты</div>
             </div>
             <div class="row">
-                <div class="col-sm">
-                    <div>
-                        <img src="img/certificate.jpg" width="200" height="250">
-                    </div>
-                    <div>
-                        <p>Сертификат №{{certificate_id}}</p>
-                        Объект генерации: {{generating_object}} <br />
-                        Тип энергии: {{energy_type}} <br />
-                        Количество энергии: {{amount_of_energy}} МВт/час <br />
-                        Дата начала производства: {{time_of_start_of_production_period}} <br />
-                        Дата заершения производства: {{time_of_stop_of_production_period}} <br />
-                        Дейсвителен до: {{time_of_destruction}} <br />
-                        Погашен: {{redeemed}} <br />
-                        <button class="btn btn-primary">Погасить</button>
-                        <br />
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
+                {% for certificate in certificates %}
+                    <div class="col-sm">
+                        <div>
+                            <img src="img/certificate.jpg" width="200" height="250">
+                        </div>
+                        <div>
+                            <p>Сертификат №{{ certificate.certificate_id }}</p>
+                            Объект генерации: {{ certificate.generating_object }} <br />
+                            Тип энергии: {{ certificate.energy_type }} <br />
+                            Количество энергии: {{ certificate.amount_of_energy }} МВт/час <br />
+                            Дата начала производства: {{ certificate.time_of_start_of_production_period }} <br />
+                            Дата заершения производства: {{ certificate.time_of_stop_of_production_period }} <br />
+                            Дейсвителен до: {{ certificate.time_of_destruction }} <br />
+                            Погашен: {{ certificate.redeemed }} <br />
+                            <button class="btn btn-primary">Погасить</button>
+                            <br />
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Передать</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary">Передать</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </body>
