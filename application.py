@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request, render_template
 
 from registry import Registry
@@ -33,7 +34,8 @@ def my_certificates_page():
         certificates=certificates,
         smart_contract_address=ETHEREUM_SETTINGS[
             "REGISTRY_CONTRACT_ADDRESS"
-        ]
+        ],
+        owner=public_key
     )
 
 @application.route("/agent", methods=["GET"])
@@ -49,11 +51,14 @@ def agent_page():
 @application.route("/create_certificate", methods=["GET","POST"])
 def create_certificate_page():
     if request.method == "POST":
-        certificate_data = request.get_json()
+        certificate_data = request.form.to_dict()
         certificates_for_verifying.append(certificate_data)
-        print(certificate_data)
-        print(request.form.get("energy_type"))
-    return render_template("create_certificate.html")
+    return render_template(
+        "create_certificate.html",
+        smart_contract_address=ETHEREUM_SETTINGS[
+            "REGISTRY_CONTRACT_ADDRESS"
+        ]
+    )
 
 if __name__ == "__main__":
     application.run(

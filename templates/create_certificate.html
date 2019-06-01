@@ -18,11 +18,11 @@
                 <form action="/create_certificate" method="post">
                     <div class="form-group">
                         <label for="generating_object">Generating object</label>
-                        <input type="text" class="form-control" id="generating_object">
+                        <input type="text" class="form-control" id="generating_object" name="generating_object">
                     </div>
                     <div class="form-group">
                         <label for="energy_type">Energy type</label>
-                        <select id="energy_type" class="form-control">
+                        <select id="energy_type" name="energy_type" class="form-control">
                             <option selected>Energy of sun</option>
                             <option>Wind energy</option>
                             <option>Water energy</option>
@@ -35,16 +35,16 @@
                     </div>
                     <div class="form-group">
                         <label for="amount_of_energy">Amount of energy</label>
-                        <input type="number" class="form-control" id="amount_of_energy">
+                        <input type="number" class="form-control" id="amount_of_energy" name="amount_of_energy">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="time_of_start_of_production_period">Time of start of production period</label>
-                            <input type="date" class="form-control" id="time_of_start_of_produfction_period">
+                            <input type="date" class="form-control" id="time_of_start_of_produfction_period" name="time_of_start_of_production_period">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="time_of_stop_of_production_period">Time of stop of production period</label>
-                            <input type="date" class="form-control" id="time_of_stop_of_produfction_period">
+                            <input type="date" class="form-control" id="time_of_stop_of_produfction_period" name="time_of_stop_of_production_period">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success">Submit for verification</button>
