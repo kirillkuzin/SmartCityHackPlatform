@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 
 from registry import Registry
+from settings import APPLICATION_SETTINGS
 
 application = Flask(__name__)
 
@@ -25,5 +26,5 @@ if __name__ == "__main__":
     application.run(
         debug=True,
         host="127.0.0.1",
-        port=5000
+        port=APPLICATION_SETTINGS["PORT"]
     )
