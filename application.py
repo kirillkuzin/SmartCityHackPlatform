@@ -52,6 +52,7 @@ def create_certificate_page():
         certificate_data = request.get_json()
         certificates_for_verifying.append(certificate_data)
         print(certificate_data)
+        print(request.form.get("energy_type"))
     return render_template("create_certificate.html")
 
 if __name__ == "__main__":
