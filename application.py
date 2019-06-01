@@ -10,7 +10,12 @@ certificates_for_verifying = []
 
 @application.route("/", methods=["GET"])
 def login_page():
-    return render_template("login.html")
+    return render_template(
+        "login.html",
+        smart_contract_address=ETHEREUM_SETTINGS[
+            "REGISTRY_CONTRACT_ADDRESS"
+        ]
+    )
 
 @application.route("/certificates", methods=["GET"])
 def certificates_page():
@@ -24,7 +29,7 @@ def certificates_page():
         ]
     )
 
-@application.route("/my_certificates", methods=["GET"])
+@application.route("/my_certificates", methods=["POST"])
 def my_certificates_page():
     public_key = "0x126F0De2008F0c593b1a3ec6F684B1715c77B7B0"
     registry_contract = Registry(public_key)
@@ -38,7 +43,7 @@ def my_certificates_page():
         owner=public_key
     )
 
-@application.route("/agent", methods=["GET"])
+@application.route("/agent", methods=["POST"])
 def agent_page():
     return render_template(
         "agent.html",
