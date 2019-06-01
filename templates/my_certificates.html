@@ -18,9 +18,9 @@
                 {% set index = 0 %}
                 {% for certificate in certificates %}
                     {% if index % 2 == 0 %}
-                        <div class="col-6 left_certificate">
+                        <div class="col-sm left_certificate">
                     {% else %}
-                        <div class="col-6 right_certificate">
+                        <div class="col-sm right_certificate">
                     {% endif %}
                         <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
@@ -42,11 +42,12 @@
                             <button type="submit" class="btn btn-primary transfer">Transfer</button>
                         </form>
                     </div>
+                    {% set index = index + 1 %}
                 {% endfor %}
                 {% if index % 2 == 0 %}
-                    <div class="col-6 left_create_field">
+                    <div class="col-sm left_create_field">
                 {% else %}
-                    <div class="col-6 right_create_field">
+                    <div class="col-sm right_create_field">
                 {% endif %}
                     <div>
                         <button class="btn btn-success">Create</button>
