@@ -15,13 +15,8 @@
                 <div>My certificates</div>
             </div>
             <div class="row">
-                {% set index = 0 %}
                 {% for certificate in certificates %}
-                    {% if index % 2 == 0 %}
-                        <div class="col-sm left_certificate">
-                    {% else %}
-                        <div class="col-sm right_certificate">
-                    {% endif %}
+                    <div class="col-sm certificate">
                         <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
                         Generating object: {{ certificate.generating_object }} <br />
@@ -42,16 +37,9 @@
                             <button type="submit" class="btn btn-primary transfer">Transfer</button>
                         </form>
                     </div>
-                    {% set index = index + 1 %}
                 {% endfor %}
-                {% if index % 2 == 0 %}
-                    <div class="col-sm left_create_field">
-                {% else %}
-                    <div class="col-sm right_create_field">
-                {% endif %}
-                    <div>
-                        <button class="btn btn-success">Create</button>
-                    </div>
+                <div class="col-sm create_field">
+                    <button class="btn btn-success">Create</button>
                 </div>
             </div>
             <div class="row justify-content-center footer">

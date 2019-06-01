@@ -5,6 +5,8 @@ from settings import APPLICATION_SETTINGS, ETHEREUM_SETTINGS
 
 application = Flask(__name__)
 
+certificates_for_verifying = []
+
 @application.route("/", methods=["GET"])
 def login_page():
     return render_template("login.html")
@@ -33,6 +35,23 @@ def my_certificates_page():
             "REGISTRY_CONTRACT_ADDRESS"
         ]
     )
+
+@application.route("/agent", methods=["GET"])
+def agent_page():
+    return render_template(
+        "agent.html",
+        certificates=certificates_for_verifying,
+        smart_contract_address=ETHEREUM_SETTINGS[
+            "REGISTRY_CONTRACT_ADDRESS"
+        ]
+    )
+
+@application.route("/create_certificate", methods=["GET","POST"])
+def create_certificate_page():
+    if request.method == "POST":
+        certificate_data = request.get_json()
+        certificates_for_verifying.append(certificate_data)
+    return render_template("create_certificate.html")
 
 if __name__ == "__main__":
     application.run(

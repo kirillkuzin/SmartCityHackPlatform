@@ -15,13 +15,8 @@
                 All certificates
             </div>
             <div class="row">
-                {% set index = 0 %}
                 {% for certificate in certificates %}
-                    {% if index % 2 == 0 %}
-                        <div class="col-sm left_certificate">
-                    {% else %}
-                        <div class="col-sm right_certificate">
-                    {% endif %}
+                    <div class="col-sm certificate">
                         <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
                         Generating object: {{ certificate.generating_object }} <br />
@@ -32,7 +27,6 @@
                         Valid until: {{ certificate.time_of_destruction }} <br />
                         Redeemed: {{ certificate.redeemed }} <br />
                     </div>
-                    {% set index = index + 1 %}
                 {% endfor %}
                 <div class="col-sm empty_field"></div>
             </div>
