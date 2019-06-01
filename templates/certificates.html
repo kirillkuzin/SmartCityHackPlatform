@@ -29,17 +29,7 @@
                             Дата начала производства: {{ certificate.time_of_start_of_production_period }} <br />
                             Дата заершения производства: {{ certificate.time_of_stop_of_production_period }} <br />
                             Дейсвителен до: {{ certificate.time_of_destruction }} <br />
-                            Погашен: {{ certificate.redeemed }} <br />
-                            <button class="btn btn-primary">Погасить</button>
-                            <br />
-                            <form>
-                                <div class="row">
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Передать</button>
-                            </form>
+                            Погашен: {{ certificate.redeemed }}
                         </div>
                     </div>
                 {% endfor %}
