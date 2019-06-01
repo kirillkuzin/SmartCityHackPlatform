@@ -1,3 +1,4 @@
 .certificate {
-    outline: 10px solid #008000;
+    border: 10px solid #008000;
+    border-radius: 10px;
 }
