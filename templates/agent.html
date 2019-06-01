@@ -13,6 +13,13 @@
             <div class="row justify-content-center header">
                 <div>Verifying certificates</div>
             </div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <form action="/" method="get">
+                        <button class="btn btn-block btn-danger">Back</button>
+                    </form>
+                </div>
+            </div>
             <div class="row">
                 {% for certificate in certificates %}
                     <div class="col-sm certificate">
@@ -28,7 +35,7 @@
                             <input type="hidden" name="owner" value={{ owner }}>
                             <input type="hidden" name="private_key" value={{ private_key }}>
                             <input type="hidden" name="certificate_index" value={{ loop.index - 1 }}>
-                            <button class="btn btn-success">Verify</button>
+                            <button class="btn btn-block btn-success">Verify</button>
                         </form>
                     </div>
                 {% endfor %}

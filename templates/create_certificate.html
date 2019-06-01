@@ -45,7 +45,9 @@
                         <input type="date" class="form-control" id="time_of_stop_of_produfction_period" name="time_of_stop_of_production_period">
                     </div>
                     <input type="hidden" name="owner" value={{ owner }}>
+                    <input type="hidden" name="private_key" value={{ private_key }}>
                     <button type="submit" class="btn btn-block btn-success">Submit for verification</button>
+                    <button type="submit" class="btn btn-block btn-danger" formaction="/my_certificates" formmethod="post">Back</button>
                 </form>
             </div>
             <div class="row justify-content-center footer">

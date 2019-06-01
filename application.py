@@ -61,10 +61,12 @@ def agent_page():
 
 @application.route("/create_certificate", methods=["GET", "POST"])
 def create_certificate_page():
-    owner = None
     if request.method == "GET":
         owner = request.args.get("owner")
+        private_key = None
     elif request.method == "POST":
+        owner = request.form.get("owner")
+        private_key = request.form.get("private_key")
         certificate_data = request.form.to_dict()
         registry_contract = Registry()
         registry_contract.set_time_of_destruction(certificate_data)
@@ -74,7 +76,8 @@ def create_certificate_page():
         smart_contract_address=ETHEREUM_SETTINGS[
             "REGISTRY_CONTRACT_ADDRESS"
         ],
-        owner=owner
+        owner=owner,
+        private_key=private_key
     )
 
 @application.route("/verify_certificate", methods=["POST"])
