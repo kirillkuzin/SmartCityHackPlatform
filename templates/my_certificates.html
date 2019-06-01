@@ -27,21 +27,22 @@
                             Time of stop of production period: {{ certificate.time_of_stop_of_production_period }} <br />
                             Valid until: {{ certificate.time_of_destruction }} <br />
                             Redeemed: {{ certificate.redeemed }} <br />
-                            <button class="btn btn-primary">Redeem</button>
+                            <button class="btn btn-success">Redeem</button>
                             <br />
                             <form>
-                                <div class="row transfer">
-                                    <div class="col">
+                                <div class="row">
+                                    <div class="col transfer">
                                         <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
                                     </div>
                                 </div>
-                                <div class="row transfer">
-                                    <button type="submit" class="btn btn-primary">Transfer</button>
-                                </div>
+                                <button type="submit" class="btn btn-primary">Transfer</button>
                             </form>
                         </div>
                     </div>
                 {% endfor %}
+                <div class="col-sm empty_field">
+                    <button class="btn btn-success">Create</button>
+                </div>
             </div>
             <div class="row justify-content-center footer">
                 Registry smart contract address: {{ smart_contract_address }}
