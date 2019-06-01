@@ -1,3 +1,5 @@
+from ethereum_core import Ethereum
+
 class Registry(Ethereum):
     def get_all_certificates(self):
         last_certificate_id = self.__get_last_certificate_id()
