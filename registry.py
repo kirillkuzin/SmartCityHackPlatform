@@ -25,7 +25,7 @@ class Registry(Ethereum):
     def get_my_certificates(self):
         certificates = self.get_all_certificates()
         my_certificates = [certificate for certificate in \
-            certificates if certificate.owner == self.public_key]
+            certificates if certificate["owner"] == self.public_key]
         return my_certificates
 
     def __get_certificate(self, certificate_id):
