@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 {% for certificate in certificates %}
-                    <div class="col-sm">
+                    <div class="col-sm certificate">
                         <div>
                             <p>Certificate №{{ certificate.certificate_id }}</p>
                             Owner: {{ certificate.owner }} <br />
@@ -29,7 +29,7 @@
                             Redeemed: {{ certificate.redeemed }} <br />
                             <button class="btn btn-primary">Погасить</button>
                             <br />
-                            <form>
+                            <form class="transfer_form">
                                 <div class="row">
                                     <div class="col">
                                         <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
