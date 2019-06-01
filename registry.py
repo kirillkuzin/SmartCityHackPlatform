@@ -33,7 +33,8 @@ class Registry(Ethereum):
         if certificate_data[7]:
             redeemed = "Yes"
         certificate = {
-            "certificate_id": certificate_data[0],
+            "certificate_id": certificate_id,
+            "owner": certificate_data[0],
             "generating_object": certificate_data[1],
             "energy_type": self.ENERGY_TYPES[certificate_data[2]],
             "amount_of_energy": certificate_data[3],
