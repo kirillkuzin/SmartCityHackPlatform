@@ -31,7 +31,7 @@ class Registry(Ethereum):
         time_of_start_of_production_period = self.__from_timestamp(
             certificate_data[4]
         )
-        time_of_stop_of_production_period = self.__from_timestamp()
+        time_of_stop_of_production_period = self.__from_timestamp(
             certificate_data[5]
         )
         time_of_destruction = self.__from_timestamp(
