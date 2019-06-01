@@ -23,11 +23,14 @@ class Registry(Ethereum):
         return certificates
 
     def get_my_certificates(self):
-        pass
+        certificates = self.get_all_certificates()
+        my_certificates = [certificate for certificate in \
+            certificates if certificate.owner == self.public_key]
+        return my_certificates
 
     def __get_certificate(self, certificate_id):
         certificate_data = \
-         self.registry_contract.call().get_certificate(certificate_id)
+           self.registry_contract.call().get_certificate(certificate_id)
         time_of_start_of_production_period = self.__from_timestamp(
             certificate_data[4]
         )

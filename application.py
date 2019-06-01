@@ -21,9 +21,18 @@ def certificates_page():
         ]
     )
 
-@application.route("/my_certificates", methods=["POST"])
+@application.route("/my_certificates", methods=["GET"])
 def my_certificates_page():
-    return render_template("my_certificates.html")
+    public_key = "0x126F0De2008F0c593b1a3ec6F684B1715c77B7B0"
+    registry_contract = Registry(public_key)
+    certificates = registry_contract.get_my_certificates()
+    return render_template(
+        "my_certificates.html",
+        certificates=certificates,
+        smart_contract_address=ETHEREUM_SETTINGS[
+            "REGISTRY_CONTRACT_ADDRESS"
+        ]
+    )
 
 if __name__ == "__main__":
     application.run(

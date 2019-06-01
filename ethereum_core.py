@@ -10,6 +10,7 @@ class Ethereum:
     def __init__(self, public_key=None, private_key=None):
         if public_key is not None:
             self.public_key = Web3.toChecksumAddress(public_key)
+        if private_key is not None:
             self.private_key = private_key
         registry_contract_address = \
             Web3.toChecksumAddress(
