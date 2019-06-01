@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 
 from registry import Registry
-from settings import APPLICATION_SETTINGS
+from settings import APPLICATION_SETTINGS, ETHEREUM_SETTINGS
 
 application = Flask(__name__)
 
@@ -15,7 +15,10 @@ def certificates_page():
     certificates = registry_contract.get_all_certificates()
     return render_template(
         "certificates.html",
-        certificates=certificates
+        certificates=certificates,
+        smart_contract_address=ETHEREUM_SETTINGS[
+            "REGISTRY_CONTRACT_ADDRESS"
+        ]
     )
 
 @application.route("/my_certificates", methods=["POST"])
