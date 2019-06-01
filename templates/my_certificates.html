@@ -1,9 +1,9 @@
 <html>
     <head lang="ru">
         <meta charset="UTF-8">
-        <title>Реестр сертификатов</title>
+        <title>Certificates registry - my certificates</title>
         <base target="_blank">
-        <!--        <link href="css/main.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -11,25 +11,22 @@
     </head>
     <body>
         <div class="container">
-            <div class="row justify-content-center">
-                <div>Все сертификаты</div>
+            <div class="row justify-content-center header">
+                <div>My certificates</div>
             </div>
             <div class="row">
                 {% for certificate in certificates %}
                     <div class="col-sm">
                         <div>
-                            <img src="img/certificate.jpg" width="200" height="250">
-                        </div>
-                        <div>
-                            <p>Сертификат №{{ certificate.certificate_id }}</p>
+                            <p>Certificate №{{ certificate.certificate_id }}</p>
                             Owner: {{ certificate.owner }} <br />
-                            Объект генерации: {{ certificate.generating_object }} <br />
-                            Тип энергии: {{ certificate.energy_type }} <br />
-                            Количество энергии: {{ certificate.amount_of_energy }} МВт/час <br />
-                            Дата начала производства: {{ certificate.time_of_start_of_production_period }} <br />
-                            Дата заершения производства: {{ certificate.time_of_stop_of_production_period }} <br />
-                            Дейсвителен до: {{ certificate.time_of_destruction }} <br />
-                            Погашен: {{ certificate.redeemed }} <br />
+                            Generating object: {{ certificate.generating_object }} <br />
+                            Energy: {{ certificate.energy_type }} <br />
+                            Amount of energy: {{ certificate.amount_of_energy }} МВт/час <br />
+                            Time of start of production period: {{ certificate.time_of_start_of_production_period }} <br />
+                            Time of stop of production period: {{ certificate.time_of_stop_of_production_period }} <br />
+                            Valid until: {{ certificate.time_of_destruction }} <br />
+                            Redeemed: {{ certificate.redeemed }} <br />
                             <button class="btn btn-primary">Погасить</button>
                             <br />
                             <form>

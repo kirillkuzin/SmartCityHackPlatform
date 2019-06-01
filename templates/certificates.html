@@ -1,7 +1,7 @@
 <html>
     <head lang="ru">
         <meta charset="UTF-8">
-        <title>Реестр сертификатов</title>
+        <title>Certificates registry - all certificates</title>
         <base target="_blank">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,7 +17,7 @@
             <div class="row">
                 {% for certificate in certificates %}
                     <div class="col-sm certificate">
-                        p>Certificate №{{ certificate.certificate_id }}</p>
+                        <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
                         Generating object: {{ certificate.generating_object }} <br />
                         Energy: {{ certificate.energy_type }} <br />
