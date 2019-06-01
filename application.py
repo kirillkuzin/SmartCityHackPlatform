@@ -51,7 +51,7 @@ def create_certificate_page():
     if request.method == "POST":
         certificate_data = request.get_json()
         certificates_for_verifying.append(certificate_data)
-        print(certificates_for_verifying)
+        print(certificate_data)
     return render_template("create_certificate.html")
 
 if __name__ == "__main__":
