@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 {% for certificate in certificates %}
-                    <div class="col-sm certificate">
+                    <div class="col-4 certificate">
                         <div>
                             <p>Certificate №{{ certificate.certificate_id }}</p>
                             Owner: {{ certificate.owner }} <br />
@@ -35,14 +35,12 @@
                                         <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
                                     </div>
                                 </div>
-                                <div class="row transfer">
-                                    <button type="submit" class="btn btn-primary">Transfer</button>
-                                </div>
+                                <button type="submit" class="btn btn-primary transfer">Transfer</button>
                             </form>
                         </div>
                     </div>
                 {% endfor %}
-                <div class="col-sm create_field">
+                <div class="col-4 create_field">
                     <div>
                         <button class="btn btn-success">Create</button>
                     </div>
