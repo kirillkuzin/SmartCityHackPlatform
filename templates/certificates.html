@@ -10,13 +10,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="">
+        <div class="container">
             <div class="row justify-content-center header">
                 All certificates
             </div>
             <div class="row">
+                {% set index = 0 %}
                 {% for certificate in certificates %}
-                    <div class="col-6 certificate">
+                    {% if index % 2 == 0 %}
+                        <div class="col-sm left_certificate">
+                    {% else %}
+                        <div class="col-sm right_certificate">
+                    {% endif %}
                         <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
                         Generating object: {{ certificate.generating_object }} <br />
@@ -27,8 +32,9 @@
                         Valid until: {{ certificate.time_of_destruction }} <br />
                         Redeemed: {{ certificate.redeemed }} <br />
                     </div>
+                    {% set index = index + 1 %}
                 {% endfor %}
-                <div class="col-6 empty_field"></div>
+                <div class="col-sm empty_field"></div>
             </div>
             <div class="row justify-content-center footer">
                 Registry smart contract address: {{ smart_contract_address }}
