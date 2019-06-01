@@ -1,0 +1,177 @@
+[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"name": "generating_object",
+				"type": "string"
+			},
+			{
+				"name": "energy_type",
+				"type": "uint16"
+			},
+			{
+				"name": "amount_of_energy",
+				"type": "uint256"
+			},
+			{
+				"name": "time_of_start_of_production_period",
+				"type": "uint256"
+			},
+			{
+				"name": "time_of_stop_of_production_period",
+				"type": "uint256"
+			},
+			{
+				"name": "time_of_destruction",
+				"type": "uint256"
+			}
+		],
+		"name": "create_certificate",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "certificate_id",
+				"type": "uint256"
+			},
+			{
+				"name": "recipient",
+				"type": "address"
+			}
+		],
+		"name": "pass_certificate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "certificate_id",
+				"type": "uint256"
+			}
+		],
+		"name": "redeem_certificate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "new_verification_agent",
+				"type": "address"
+			}
+		],
+		"name": "set_verification_agent_address",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "new_verification_agent",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "certificate_id",
+				"type": "uint256"
+			}
+		],
+		"name": "get_certificate",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "uint16"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "last_certificate_id",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "verification_agent",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
