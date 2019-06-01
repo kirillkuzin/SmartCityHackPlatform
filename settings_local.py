@@ -1,6 +1,6 @@
 import os
 
-APPLICATION_SETTINGS = {"PORT": os.getenv("PORT") or 5000}
+APPLICATION_SETTINGS = {"PORT": int(os.environ.get('PORT', 5000))}
 
 ETHEREUM_SETTINGS = {
     "DEFAULT_GAS_PRICE": 21000000000,
