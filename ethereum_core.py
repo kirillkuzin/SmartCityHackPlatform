@@ -13,7 +13,7 @@ class Ethereum:
             self.private_key = private_key
         registry_contract_address = \
             ETHEREUM_SETTINGS["REGISTRY_CONTRACT_ADDRESS"])
-        with open(ETHEREUM_SETTINGS["CONTRACT_PATH_TO_ABI"], "r") \
+        with open(ETHEREUM_SETTINGS["REGISTRY_CONTRACT_ABI"], "r") \
             as abi:
                 registry_contract_abi = json.load(abi)
         self.registry_contract = self.web3.eth.contract(

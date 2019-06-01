@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template
 
+from registry import Registry
+
 application = Flask(__name__)
 
 @application.route("/", methods=["GET"])
@@ -8,7 +10,12 @@ def login_page():
 
 @application.route("/certificates", methods=["GET"])
 def certificates_page():
-    return render_template("certificates.html")
+    registry_contract = Registry()
+    certificates = registry_contract.get_all_certificates()
+    return render_template(
+        "certificates.html",
+        certificates=certificates
+    )
 
 @application.route("/my_certificates", methods=["POST"])
 def my_certificates_page():
