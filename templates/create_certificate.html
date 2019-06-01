@@ -15,12 +15,12 @@
                 Create certificate
             </div>
             <div class="row">
-                <form>
+                <form action="/create_certificate" method="post">
                     <div class="form-group">
                         <label for="input_generating_object">Generating object</label>
                         <input type="text" class="form-control" id="input_generating_object">
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group">
                         <label for="input_energy_type">Energy type</label>
                         <select id="input_energy_type" class="form-control">
                             <option selected>Energy of sun</option>
@@ -33,18 +33,18 @@
                             <option>Gas</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group">
                         <label for="input_amount_of_energy">Amount of energy</label>
-                        <input type="text" class="form-control" id="input_amount_of_energy">
+                        <input type="number" class="form-control" id="input_amount_of_energy">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="input_time_of_start_of_produfction_period">Email</label>
-                            <input type="text" class="form-control" id="input_time_of_start_of_produfction_period">
+                            <label for="input_time_of_start_of_produfction_period">Time of start of produfction_period</label>
+                            <input type="date" class="form-control" id="input_time_of_start_of_produfction_period">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="input_time_of_stop_of_produfction_period">Password</label>
-                            <input type="text" class="form-control" id="input_time_of_stop_of_produfction_period">
+                            <label for="input_time_of_stop_of_produfction_period">Time of stop of produfction_period</label>
+                            <input type="date" class="form-control" id="input_time_of_stop_of_produfction_period">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success">Submit for verification</button>
