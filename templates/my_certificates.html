@@ -32,23 +32,25 @@
                         Time of stop of production period: {{ certificate.time_of_stop_of_production_period }} <br />
                         Valid until: {{ certificate.time_of_destruction }} <br />
                         Redeemed: {{ certificate.redeemed }} <br />
-                        <form action="/redeem_certificate" method="post">
-                            <input type="hidden" name="owner" value={{ owner }}>
-                            <input type="hidden" name="private_key" value={{ private_key }}>
-                            <input type="hidden" name="certificate_id" value={{ certificate.certificate_id }}>
-                            <button class="btn btn-success">Redeem</button>
-                        </form>
-                        <form action="/transfer_certificate" method="post">
-                            <div class="row transfer">
-                                <div class="col">
-                                    <input type="hidden" name="owner" value={{ owner }}>
-                                    <input type="hidden" name="private_key" value={{ private_key }}>
-                                    <input type="hidden" name="certificate_id" value={{ certificate.certificate_id }}>
-                                    <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient address">
+                        {% if certificate.redeemed == "No" %}
+                            <form action="/redeem_certificate" method="post">
+                                <input type="hidden" name="owner" value={{ owner }}>
+                                <input type="hidden" name="private_key" value={{ private_key }}>
+                                <input type="hidden" name="certificate_id" value={{ certificate.certificate_id }}>
+                                <button class="btn btn-success">Redeem</button>
+                            </form>
+                            <form action="/transfer_certificate" method="post">
+                                <div class="row transfer">
+                                    <div class="col">
+                                        <input type="hidden" name="owner" value={{ owner }}>
+                                        <input type="hidden" name="private_key" value={{ private_key }}>
+                                        <input type="hidden" name="certificate_id" value={{ certificate.certificate_id }}>
+                                        <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient address">
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary transfer">Transfer</button>
-                        </form>
+                                <button type="submit" class="btn btn-primary transfer">Transfer</button>
+                            </form>
+                        {% endif %}
                     </div>
                 {% endfor %}
                 <div class="col-sm create_field">
