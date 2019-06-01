@@ -19,18 +19,25 @@
                         <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
                         Generating object: {{ certificate.generating_object }} <br />
-                        Energy: {{ certificate.energy_type }} <br />
+                        Energy type: {{ certificate.energy_type }} <br />
                         Amount of energy: {{ certificate.amount_of_energy }} MW/hour <br />
                         Time of start of production period: {{ certificate.time_of_start_of_production_period }} <br />
                         Time of stop of production period: {{ certificate.time_of_stop_of_production_period }} <br />
                         Valid until: {{ certificate.time_of_destruction }} <br />
                         Redeemed: {{ certificate.redeemed }} <br />
-                        <button class="btn btn-success">Redeem</button>
-                        <br />
-                        <form>
+                        <form action="/redeem_certificate" method="post">
+                            <input type="hidden" name="owner" value={{ owner }}>
+                            <input type="hidden" name="private_key" value={{ private_key }}>
+                            <input type="hidden" name="certificate_id" value={{ certificate.certificate_id }}>
+                            <button class="btn btn-success">Redeem</button>
+                        </form>
+                        <form action="/transfer_certificate" method="post">
                             <div class="row transfer">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
+                                    <input type="hidden" name="owner" value={{ owner }}>
+                                    <input type="hidden" name="private_key" value={{ private_key }}>
+                                    <input type="hidden" name="certificate_id" value={{ certificate.certificate_id }}>
+                                    <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Enter recipient address">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary transfer">Transfer</button>
@@ -39,6 +46,7 @@
                 {% endfor %}
                 <div class="col-sm create_field">
                     <form action="/create_certificate", method="get">
+                        <input type="hidden" name="owner" value={{ owner }}>
                         <button class="btn btn-success">Create</button>
                     </form>
                 </div>

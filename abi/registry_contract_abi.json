@@ -48,24 +48,6 @@
 			{
 				"name": "certificate_id",
 				"type": "uint256"
-			},
-			{
-				"name": "recipient",
-				"type": "address"
-			}
-		],
-		"name": "pass_certificate",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "certificate_id",
-				"type": "uint256"
 			}
 		],
 		"name": "redeem_certificate",
@@ -83,6 +65,24 @@
 			}
 		],
 		"name": "set_verification_agent_address",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "certificate_id",
+				"type": "uint256"
+			},
+			{
+				"name": "recipient",
+				"type": "address"
+			}
+		],
+		"name": "transfer_certificate",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
