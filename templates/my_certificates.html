@@ -15,32 +15,39 @@
                 <div>My certificates</div>
             </div>
             <div class="row">
+                {% set index = 0 %}
                 {% for certificate in certificates %}
-                    <div class="col-sm certificate">
-                        <div>
-                            <p>Certificate №{{ certificate.certificate_id }}</p>
-                            Owner: {{ certificate.owner }} <br />
-                            Generating object: {{ certificate.generating_object }} <br />
-                            Energy: {{ certificate.energy_type }} <br />
-                            Amount of energy: {{ certificate.amount_of_energy }} MW/hour <br />
-                            Time of start of production period: {{ certificate.time_of_start_of_production_period }} <br />
-                            Time of stop of production period: {{ certificate.time_of_stop_of_production_period }} <br />
-                            Valid until: {{ certificate.time_of_destruction }} <br />
-                            Redeemed: {{ certificate.redeemed }} <br />
-                            <button class="btn btn-success">Redeem</button>
-                            <br />
-                            <form>
-                                <div class="row transfer">
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
-                                    </div>
+                    {% if index % 2 == 0 %}
+                        <div class="col-sm left_certificate">
+                    {% else %}
+                        <div class="col-sm right_certificate">
+                    {% endif %}
+                        <p>Certificate №{{ certificate.certificate_id }}</p>
+                        Owner: {{ certificate.owner }} <br />
+                        Generating object: {{ certificate.generating_object }} <br />
+                        Energy: {{ certificate.energy_type }} <br />
+                        Amount of energy: {{ certificate.amount_of_energy }} MW/hour <br />
+                        Time of start of production period: {{ certificate.time_of_start_of_production_period }} <br />
+                        Time of stop of production period: {{ certificate.time_of_stop_of_production_period }} <br />
+                        Valid until: {{ certificate.time_of_destruction }} <br />
+                        Redeemed: {{ certificate.redeemed }} <br />
+                        <button class="btn btn-success">Redeem</button>
+                        <br />
+                        <form>
+                            <div class="row transfer">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="recipient_address" placeholder="Enter recipient address">
                                 </div>
-                                <button type="submit" class="btn btn-primary transfer">Transfer</button>
-                            </form>
-                        </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary transfer">Transfer</button>
+                        </form>
                     </div>
                 {% endfor %}
-                <div class="col-sm create_field">
+                {% if index % 2 == 0 %}
+                    <div class="col-sm left_create_field">
+                {% else %}
+                    <div class="col-sm right_create_field">
+                {% endif %}
                     <div>
                         <button class="btn btn-success">Create</button>
                     </div>

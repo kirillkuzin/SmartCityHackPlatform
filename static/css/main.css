@@ -23,13 +23,22 @@
     margin-right: 25px;
 }
 
-.create_field {
+.left_create_field {
     outline: 5px solid #008000;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 25px;
-    margin-right: 25px;
+    margin-right: 12.5px;
+}
+
+.right_create_field {
+    outline: 5px solid #008000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    margin-left: 12.5px;
 }
 
 .transfer {
