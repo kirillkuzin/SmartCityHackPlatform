@@ -59,7 +59,7 @@ class Registry(Ethereum):
         return self.registry_contract.call().last_certificate_id()
 
     def __from_timestamp(self, timestamp):
-        datetime = datetime.utcfromtimestamp(
+        correct_datetime = datetime.utcfromtimestamp(
             int(timestamp)
         ).strftime('%Y-%m-%d %H:%M:%S')
-        return datetime
+        return correct_datetime
