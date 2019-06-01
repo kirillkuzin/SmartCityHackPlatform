@@ -12,7 +12,9 @@ class Ethereum:
             self.public_key = Web3.toChecksumAddress(public_key)
             self.private_key = private_key
         registry_contract_address = \
-            ETHEREUM_SETTINGS["REGISTRY_CONTRACT_ADDRESS"]
+            Web3.toChecksumAddress(
+                ETHEREUM_SETTINGS["REGISTRY_CONTRACT_ADDRESS"]
+            )
         with open(ETHEREUM_SETTINGS["REGISTRY_CONTRACT_ABI"], "r") \
             as abi:
                 registry_contract_abi = json.load(abi)
