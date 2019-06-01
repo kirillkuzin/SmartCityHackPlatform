@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 {% for certificate in certificates %}
-                    <div class="col-sm certificate">
+                    <div class="col-6 certificate">
                         <p>Certificate №{{ certificate.certificate_id }}</p>
                         Owner: {{ certificate.owner }} <br />
                         Generating object: {{ certificate.generating_object }} <br />
@@ -28,7 +28,7 @@
                         Redeemed: {{ certificate.redeemed }} <br />
                     </div>
                 {% endfor %}
-                <div class="col-sm empty_field"></div>
+                <div class="col-6 empty_field"></div>
             </div>
             <div class="row justify-content-center footer">
                 Registry smart contract address: {{ smart_contract_address }}
